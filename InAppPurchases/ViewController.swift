@@ -45,6 +45,8 @@ class ViewController: UIViewController {
         NetworkAcitvityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + purchase.rawValue]) { (result) in
             NetworkAcitvityIndicatorManager.networkOperationFinished()
+            
+            self.showAlert(alert: self.alertForProductRetrivalInfo(result: result))
         }
     }
 
@@ -52,6 +54,14 @@ class ViewController: UIViewController {
         NetworkAcitvityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.purchaseProduct(bundleID + "." + purchase.rawValue) { (result) in
             NetworkAcitvityIndicatorManager.networkOperationFinished()
+            
+            if case .success(let product) = result {
+                
+                if product.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(product.transaction)
+                }
+                self.showAlert(alert: self.alertForPurchaseResult(result: result))
+            }
         }
     }
     
@@ -59,16 +69,29 @@ class ViewController: UIViewController {
         NetworkAcitvityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.restorePurchases(atomically: true) {result in
             NetworkAcitvityIndicatorManager.networkOperationFinished()
+            
+            for product in result.restoredPurchases {
+                if product.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(product.transaction)
+                }
+            }
+            
+            self.showAlert(alert: self.alertForRestorePurchases(result: result))
+
         }
         
         
     }
+    
     
     func verifyReceipts(){
         NetworkAcitvityIndicatorManager.networkOperationFinished()
         SwiftyStoreKit.verifyReceipt(using: AppleReceiptValidator() as ReceiptValidator, password: sharedSecret, completion: {
             result in
             NetworkAcitvityIndicatorManager.networkOperationFinished()
+            
+            self.showAlert(alert: self.alertForFerifyReceipt(result: result))
+
         })
     }
     
