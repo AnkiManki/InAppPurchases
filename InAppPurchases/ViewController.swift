@@ -21,9 +21,7 @@ class ViewController: UIViewController {
     let bundleID = "com.stefanmarkovic.InAppPurchases"
     var dollar10 = RegisteredPurchases.Dollars10
     var removeAdds = RegisteredPurchases.RemoveAdds
-    
-    
-    
+
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
@@ -42,27 +40,63 @@ class ViewController: UIViewController {
     @IBAction func nonRenewable(_ sender: UIButton) {
     }
     
-    //Get info from this purchases
-    
     func getInfo(purchase: RegisteredPurchases){
         
         NetworkAcitvityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.retrieveProductsInfo([bundleID + "." + purchase.rawValue]) { (result) in
-            
             NetworkAcitvityIndicatorManager.networkOperationFinished()
-            
         }
     }
-    
+
     func purchase(purchase: RegisteredPurchases){
         NetworkAcitvityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.purchaseProduct(bundleID + "." + purchase.rawValue) { (result) in
-            
             NetworkAcitvityIndicatorManager.networkOperationFinished()
         }
     }
+    
+    func restorePurchases(){
+        NetworkAcitvityIndicatorManager.networkOperationStarted()
+        SwiftyStoreKit.restorePurchases(atomically: true) {result in
+            NetworkAcitvityIndicatorManager.networkOperationFinished()
+        }
+        
+        
+    }
+    
+    func verifyReceipts(){
+        NetworkAcitvityIndicatorManager.networkOperationFinished()
+        SwiftyStoreKit.verifyReceipt(using: AppleReceiptValidator() as ReceiptValidator, password: sharedSecret, completion: {
+            result in
+            NetworkAcitvityIndicatorManager.networkOperationFinished()
+        })
+    }
+    
+    func verifyPurchase(){
+        NetworkAcitvityIndicatorManager.networkOperationStarted()
+        SwiftyStoreKit.verifyReceipt(using: AppleReceiptValidator() as ReceiptValidator, password: sharedSecret, completion: {
+            result in
+            NetworkAcitvityIndicatorManager.networkOperationFinished()
+        })
+        
+    }
+    
+   
+    
+    
+    
     
     
     
 }
+
+
+
+
+
+
+
+
+
+
 

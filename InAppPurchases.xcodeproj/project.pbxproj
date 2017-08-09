@@ -19,6 +19,7 @@
 		9DBFC8E21F3B08C4005F446B /* InAppPurchasesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFC8E11F3B08C4005F446B /* InAppPurchasesUITests.swift */; };
 		9DBFC8F11F3B29AB005F446B /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFC8F01F3B29AB005F446B /* NetworkActivityIndicator.swift */; };
 		9DBFC8F41F3B2A53005F446B /* RegisteredPurchasesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFC8F31F3B2A53005F446B /* RegisteredPurchasesEnum.swift */; };
+		9DBFC8F81F3B4017005F446B /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBFC8F71F3B4017005F446B /* ExtensionViewController.swift */; };
 		FEF3D5C3BDB8DACAE6E42397 /* Pods_InAppPurchasesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 644A740EA32156B4ECC42D46 /* Pods_InAppPurchasesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		9DBFC8E31F3B08C4005F446B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DBFC8F01F3B29AB005F446B /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
 		9DBFC8F31F3B2A53005F446B /* RegisteredPurchasesEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredPurchasesEnum.swift; sourceTree = "<group>"; };
+		9DBFC8F71F3B4017005F446B /* ExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		B44DB9D7EC496CE69B0EEA22 /* Pods-InAppPurchases.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InAppPurchases.release.xcconfig"; path = "Pods/Target Support Files/Pods-InAppPurchases/Pods-InAppPurchases.release.xcconfig"; sourceTree = "<group>"; };
 		FA66AF9D9110E0CC48E2B6C2 /* Pods-InAppPurchasesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InAppPurchasesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InAppPurchasesTests/Pods-InAppPurchasesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +177,7 @@
 			children = (
 				9DBFC8F01F3B29AB005F446B /* NetworkActivityIndicator.swift */,
 				9DBFC8F31F3B2A53005F446B /* RegisteredPurchasesEnum.swift */,
+				9DBFC8F71F3B4017005F446B /* ExtensionViewController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 			files = (
 				9DBFC8C71F3B08C3005F446B /* InAppPurchases.xcdatamodeld in Sources */,
 				9DBFC8F11F3B29AB005F446B /* NetworkActivityIndicator.swift in Sources */,
+				9DBFC8F81F3B4017005F446B /* ExtensionViewController.swift in Sources */,
 				9DBFC8C11F3B08C3005F446B /* ViewController.swift in Sources */,
 				9DBFC8F41F3B2A53005F446B /* RegisteredPurchasesEnum.swift in Sources */,
 				9DBFC8BF1F3B08C3005F446B /* AppDelegate.swift in Sources */,
